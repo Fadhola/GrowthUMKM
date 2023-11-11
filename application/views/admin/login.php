@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Admin - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css');?>" rel="stylesheet" type="text/css">
@@ -39,31 +39,28 @@
                             <div class="col-lg-2 d-none d-lg-block"></div>
                             <div class="col-lg-8">
                                 <div class="p-5">
+                                <?php if ($this->session->flashdata('error')): ?> <!--Menampilkan pesan error-->
+                                <div class="alert alert-danger">
+                                <?php echo $this->session->flashdata('error'); ?>
+                                </div>
+                                <?php endif; ?>
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Admin</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="post" action="<?php echo site_url('admincontroll/login'); ?>">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                                aria-describedby="emailHelp" placeholder="Username ..." name="username">
+                                            <?php echo form_error('username_admin', '<small class="text-danger">', '</small>'); ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                                                placeholder="Password ..." name="password">
+                                            <?php echo form_error('pass_admin', '<small class="text-danger">', '</small>'); ?>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
+
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
