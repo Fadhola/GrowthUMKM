@@ -36,6 +36,19 @@ class Admincontroll extends CI_Controller {
 		$this->load->view('admin/layout/footer');
 	}
 
+	public function addpaket(){
+
+	}
+
+	public function editpaket(){
+		
+	}
+
+	public function deletepaket(){
+		
+	}
+
+
 	public function login()
 	{
 		$u = $this->input->post('username'); 

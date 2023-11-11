@@ -30,7 +30,7 @@
                                                     <td><?php echo $pkt->waktu; ?></td>
                                                     <td><?php echo $pkt->harga; ?></td>
                                                     <td>
-                                                    <a href="<?php echo site_url('admincontroll/editPaket/' . $pkt->id_paket); ?>" class="btn btn-primary text-white"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    <a href="<?php echo site_url('admincontroll/addpaket/' . $pkt->id_paket); ?>" class="btn btn-primary text-white"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                                     <a href="<?php echo site_url('admincontroll/editPaket/' . $pkt->id_paket); ?>" class="btn btn-warning text-white"><i class="fa fa-list" aria-hidden="true"></i></a>
                                                     <a href="<?php echo site_url('admincontroll/deletePaket/' . $pkt->id_paket); ?>" class="btn btn-danger text-white"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
