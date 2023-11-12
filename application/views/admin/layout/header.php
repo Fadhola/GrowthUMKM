@@ -33,7 +33,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('/admincontroll/dashboard') ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/admincontroll/dashboard') ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
                 <div class="sidebar-brand-text mx-3">Admin Dashboard<sup></sup></div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url('/admincontroll/dashboard') ?>">
+                <a class="nav-link" href="<?php echo base_url('admin/admincontroll/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -62,9 +62,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Halaman : </h6>
-                        <a class="collapse-item" href="<?php echo base_url('admincontroll/paketlangganan')?>">Data Paket Langganan</a>
-                        <a class="collapse-item" href="register.html">Data User</a>
-                        <a class="collapse-item" href="forgot-password.html">Data Transaksi</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/admincontroll/paketlangganan')?>">Data Paket Langganan</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/admincontroll/user')?>">Data User</a>
+                        <a class="collapse-item" href="<?php echo base_url('admin/admincontroll/transaksi')?>">Data Transaksi</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Lain - lainnya :</h6>
                         <a class="collapse-item" href="404.html">Verifikasi Transaksi</a>
@@ -98,7 +98,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php foreach ($alladmindata as $admin) : ?>
+                <?php foreach ($all_admin as $admin) : ?>
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->

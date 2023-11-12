@@ -17,37 +17,45 @@ class Admincontroll extends CI_Controller {
     public function dashboard()
 	{
 		if (!$this->session->userdata('status') == 'login') {
-			redirect('admincontroll');
+			redirect('admin/admincontroll');
 		}
-		$data['alladmindata'] = $this->Madmin->getAllAdmin();
+		$data['all_admin'] = $this->Madmin->getAllAdmin();
 		$this->load->view('admin/layout/header',$data);
-		$this->load->view('admin/layout/dashboard');
+		$this->load->view('admin/layout/dashboard', $data);
 		$this->load->view('admin/layout/footer');
 	}
 
 	public function paketlangganan(){
 		if (!$this->session->userdata('status') == 'login') {
-			redirect('admincontroll');
+			redirect('admin/admincontroll');
 		}
-		$data['alladmindata'] = $this->Madmin->getAllAdmin();
+		$data['all_admin'] = $this->Madmin->getAllAdmin();
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$this->load->view('admin/layout/header',$data);
 		$this->load->view('admin/paketlangganan',$data);
 		$this->load->view('admin/layout/footer');
 	}
 
-	public function addpaket(){
-
+	public function user(){
+		if (!$this->session->userdata('status') == 'login') {
+			redirect('admin/admincontroll');
+		}
+		$data['all_admin'] = $this->Madmin->getAllAdmin();
+		$data['paket_data'] = $this->Madmin->getAllPaket();
+		$data['user_data'] = $this->Madmin->getAllUser();
+		$this->load->view('admin/layout/header',$data);
+		$this->load->view('admin/datauser',$data);
+		$this->load->view('admin/layout/footer');
 	}
 
-	public function editpaket(){
-		
+	private function loadUserView($data) {
+		$data['all_admin'] = $this->Madmin->getAllAdmin();
+		$data['paket_data'] = $this->Madmin->getAllPaket();
+		$data['user_data'] = $this->Madmin->getAllUser();
+		$this->load->view('admin/layout/header', $data);
+		$this->load->view('admin/datauser', $data);
+		$this->load->view('admin/layout/footer');
 	}
-
-	public function deletepaket(){
-		
-	}
-
 
 	public function login()
 	{
@@ -60,16 +68,16 @@ class Admincontroll extends CI_Controller {
 			'status' => 'login'
 		  );
 		  $this->session->set_userdata($data_session);
-		  redirect('admincontroll/dashboard');
+		  redirect('admin/admincontroll/dashboard');
 		} else {
 		  $this->session->set_flashdata('error', 'Username atau password salah.');
-		  redirect('admincontroll');
+		  redirect('admin/admincontroll');
 		}
 	}
 	
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('admincontroll');
+		redirect('admin/admincontroll');
 	}
 }
 
