@@ -15,7 +15,7 @@ class Paketlangganan extends CI_Controller {
 	}
 
 	public function addpaket(){
-        if (!$this->session->userdata('status') == 'login') {
+		if(empty($this->session->userdata('username_admin'))){
 			redirect('admin/admincontroll');
 		}
         if ($this->input->post()) {
@@ -34,10 +34,9 @@ class Paketlangganan extends CI_Controller {
 	}
 
     public function editpaket($id) {
-        if (!$this->session->userdata('status') == 'login') {
-            redirect('admin/admincontroll');
-        }
-        
+		if(empty($this->session->userdata('username_admin'))){
+			redirect('admin/admincontroll');
+		}
         if ($this->input->post()) {
             $data = array(
                 'waktu' => $this->input->post('waktu'),

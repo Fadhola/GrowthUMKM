@@ -15,10 +15,9 @@ class User extends CI_Controller {
 	}
 
     public function adduser(){
-        if (!$this->session->userdata('status') == 'login') {
-            redirect('admin/admincontroll');
-        }
-        $data['paket_data'] = $this->Madmin->getAllPaket();
+		if(empty($this->session->userdata('username_admin'))){
+			redirect('admin/admincontroll');
+		}
         if ($this->input->post()) {
             $this->form_validation->set_rules('namauser', 'Nama User', 'required');
             $this->form_validation->set_rules('alamatuser', 'Alamat User', 'required');
@@ -56,14 +55,56 @@ class User extends CI_Controller {
             }    
         }
 	}
-    public function edituser($id) {
 
+    public function edituser($id) {
+		if(empty($this->session->userdata('username_admin'))){
+			redirect('admin/admincontroll');
+		}
+    
+        $data['paket_data'] = $this->Madmin->getAllPaket();
+        $data['user_data'] = $this->Madmin->getUserById($id);
+    
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('namauser', 'Nama User', 'required');
+            $this->form_validation->set_rules('alamatuser', 'Alamat User', 'required');
+            $this->form_validation->set_rules('emailuser', 'Email User', 'required|valid_email');
+            $this->form_validation->set_rules('tlpuser', 'Telepon User', 'required');
+            $this->form_validation->set_rules('usernameuser', 'Username User', 'required');
+            $this->form_validation->set_rules('passuser', 'Password User', 'required');
+            $this->form_validation->set_rules('id_paket', 'Id Paket', 'required');
+    
+            if ($this->form_validation->run() == true) {
+                $data_user = array(
+                    'nama_user' => $this->input->post('namauser'),
+                    'alamat_user' => $this->input->post('alamatuser'),
+                    'email' => $this->input->post('emailuser'),
+                    'telp_user' => $this->input->post('tlpuser'),
+                    'username_user' => $this->input->post('usernameuser'),
+                    'pass_user' => $this->input->post('passuser'),
+                    'tgl_daftar' => $this->input->post('tgldaftar'),
+                    'tgl_awal' => $this->input->post('tglawal'),
+                    'tgl_akhir' => $this->input->post('tglakhir'),
+                    'id_paket' => $this->input->post('id_paket')
+                );
+    
+                $this->Madmin->updateUser($id, $data_user);
+                redirect('admin/admincontroll/user');
+            } else {
+                $data['validation_error'] = validation_errors();
+                $this->load->view('admin/layout/header', $data);
+                $this->load->view('admin/layout/footer');
+            }
+        } else {
+            $this->load->view('admin/layout/header', $data);
+            $this->load->view('admin/layout/footer');
+        }
     }
     
+    
     public function deleteuser($id){
-        if (!$this->session->userdata('status') == 'login') {
-            redirect('admincontroll');
-        }
+		if(empty($this->session->userdata('username_admin'))){
+			redirect('admin/admincontroll');
+		}
         $this->Madmin->deleteUser($id);
         redirect('admin/admincontroll/user');
     }

@@ -43,7 +43,7 @@
                                                     <td><?php echo $usr->id_paket; ?></td>
                                                     <td><?php echo $usr->waktu; ?></td>
                                                     <td>
-                                                    <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editPaketModal<?php echo $usr->id_paket; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editUserModal<?php echo $usr->id_user; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
                                                     <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('admin/user/deleteuser/' . $usr->id_user); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>

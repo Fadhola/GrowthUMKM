@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 07:15 PM
+-- Generation Time: Nov 14, 2023 at 07:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,8 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `telp_admin`, `username_admin`, `pass_admin`) VALUES
-(1, 'ibnu arbianto ', '083123131', 'arbiantoadmin', 'arbiantoadmin');
+(1, 'ibnu arbianto ', '083123131', 'arbiantoadmin', 'arbiantoadmin'),
+(2, 'superadmin', '45', 'superadmin', 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -103,11 +104,12 @@ CREATE TABLE `tb_paket` (
 --
 
 INSERT INTO `tb_paket` (`id_paket`, `waktu`, `harga`) VALUES
-(1, 'default', 0),
+(1, 'default (tidak aktif)', 0),
 (2, '1 bulan', 10000),
 (11, '6 bulan', 55000),
 (12, '1 tahun', 110000),
-(13, '3 tahun', 80000000);
+(13, '1.5 tahun', 50000),
+(15, '10 tahun', 5);
 
 -- --------------------------------------------------------
 
@@ -119,8 +121,21 @@ CREATE TABLE `tb_transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_paket` int(11) NOT NULL,
-  `nominal_transaksi` int(11) NOT NULL
+  `nominal_transaksi` int(11) NOT NULL,
+  `tgl_bayar` date DEFAULT NULL,
+  `tgl_validasi` date DEFAULT NULL,
+  `id_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_transaksi`
+--
+
+INSERT INTO `tb_transaksi` (`id_transaksi`, `id_user`, `id_paket`, `nominal_transaksi`, `tgl_bayar`, `tgl_validasi`, `id_admin`) VALUES
+(1, 5, 2, 12500, '2023-11-13', '2023-11-14', 1),
+(3, 5, 13, 57500, '2023-11-13', '0000-00-00', 1),
+(4, 6, 12, 12500, '2023-11-14', '0000-00-00', 1),
+(6, 7, 12, 23000, '2023-11-15', '2023-11-16', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +162,11 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `alamat_user`, `email`, `telp_user`, `username_user`, `pass_user`, `tgl_daftar`, `tgl_awal`, `tgl_akhir`, `id_paket`) VALUES
-(2, 'test', 'test', 'test@gmail.com', '2555446', 'test123', 'test123', '2023-11-12', NULL, NULL, 1);
+(2, 'test', 'test', 'test@gmail.com', '2555446', 'test123', 'test123', '2023-11-12', '0000-00-00', '0000-00-00', 1),
+(5, 'dummy 1', 'dummy 1', 'dummy1@gmail.com', '2313', 'dummy 12', 'dummy 1', '2023-11-13', '0000-00-00', '0000-00-00', 1),
+(6, 'user', 'saaas', 'userme@gmail.com', '2555446', 'user', 'user', '2023-11-15', '0000-00-00', '0000-00-00', 12),
+(7, 'kul', 'kul', 'kul@gmail.com', '124134', 'kul', 'kul', '2023-11-16', '0000-00-00', '0000-00-00', 11),
+(8, 'human', 'human', 'human@gmail.com', '45567', 'humanaa', 'human', '2023-11-15', '0000-00-00', '0000-00-00', 15);
 
 --
 -- Indexes for dumped tables
@@ -193,7 +212,8 @@ ALTER TABLE `tb_paket`
 ALTER TABLE `tb_transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
   ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_paket` (`id_paket`);
+  ADD KEY `id_paket` (`id_paket`),
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `tb_user`
@@ -210,7 +230,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_gaji`
@@ -234,19 +254,19 @@ ALTER TABLE `tb_keuangan`
 -- AUTO_INCREMENT for table `tb_paket`
 --
 ALTER TABLE `tb_paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -276,7 +296,8 @@ ALTER TABLE `tb_keuangan`
 --
 ALTER TABLE `tb_transaksi`
   ADD CONSTRAINT `tb_transaksi_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_transaksi_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_transaksi_ibfk_2` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_transaksi_ibfk_3` FOREIGN KEY (`id_admin`) REFERENCES `tb_admin` (`id_admin`);
 
 --
 -- Constraints for table `tb_user`
