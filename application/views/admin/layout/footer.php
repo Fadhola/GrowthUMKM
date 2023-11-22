@@ -173,7 +173,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Tambah User</button>
+                        <button type="submit" class="btn btn-primary">Tambah Transaksi</button>
                     </div>
                 </form>
             </div>
@@ -219,7 +219,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Paket</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -228,7 +228,7 @@
                 <form action="<?php echo site_url('admin/user/edituser/' . $usr->id_user); ?>" method="post">
                     <div class="form-group">
                         <label for="namauser">Nama User : </label>
-                        <input type="text" class="form-control" id="namauser" name="namauser" value="<?php echo $usr->nama_user; ?>" required>
+                        <input type="text" class="form-control" id="namauser" name="namauser" value="<?php echo $usr->nama_user; ?>">
                     </div>
                     <div class="form-group">
                         <label for="alamatuser">Alamat User : </label>
@@ -240,7 +240,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tlpuser">Telepon User : </label>
-                        <input type="text" class="form-control" id="tlpuser" name="tlpuser" value="<?php echo $usr->telp_user; ?>" required>
+                        <input type="text" class="form-control" id="tlpuser" name="tlpuser" value="<?php echo $usr->telp_user; ?>">
                     </div>
                     <div class="form-group">
                         <label for="usernameuser">Username User : </label>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 07:50 PM
+-- Generation Time: Nov 22, 2023 at 03:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -65,11 +65,33 @@ CREATE TABLE `tb_gaji` (
 --
 
 CREATE TABLE `tb_karyawan` (
-  `id_karaywan` int(11) NOT NULL,
+  `id_karyawan` int(11) NOT NULL,
   `nama_karyawan` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL,
+  `telp_karyawan` varchar(25) NOT NULL,
+  `nik_karyawan` varchar(50) NOT NULL,
   `tgl_kerja` date NOT NULL,
   `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_karyawan`
+--
+
+INSERT INTO `tb_karyawan` (`id_karyawan`, `nama_karyawan`, `role`, `telp_karyawan`, `nik_karyawan`, `tgl_kerja`, `id_user`) VALUES
+(3, 'Andri Putra', 'staff', '56565', '28494420526267999163450896', '2023-11-19', 12),
+(4, 'Gangsa Saputra', 'staff', '0898214981942', '78322045959808309464801023', '2023-11-20', 12),
+(5, 'Umaya Hutagalung', 'Kepala Staff', '08967455666', '13800583531873164773418647', '2023-11-21', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kategori`
+--
+
+CREATE TABLE `tb_kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `nama_kategori` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -82,8 +104,8 @@ CREATE TABLE `tb_keuangan` (
   `id_keuangan` int(11) NOT NULL,
   `catatan` text NOT NULL,
   `tanggal` date NOT NULL,
-  `kategori` varchar(50) NOT NULL,
-  `saldo` int(11) NOT NULL,
+  `nominal` varchar(20) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -109,7 +131,7 @@ INSERT INTO `tb_paket` (`id_paket`, `waktu`, `harga`) VALUES
 (11, '6 bulan', 55000),
 (12, '1 tahun', 110000),
 (13, '1.5 tahun', 50000),
-(15, '10 tahun', 5);
+(16, '2 tahun', 195000);
 
 -- --------------------------------------------------------
 
@@ -135,7 +157,8 @@ INSERT INTO `tb_transaksi` (`id_transaksi`, `id_user`, `id_paket`, `nominal_tran
 (1, 5, 2, 12500, '2023-11-13', '2023-11-14', 1),
 (3, 5, 13, 57500, '2023-11-13', '0000-00-00', 1),
 (4, 6, 12, 12500, '2023-11-14', '0000-00-00', 1),
-(6, 7, 12, 23000, '2023-11-15', '2023-11-16', 1);
+(6, 7, 12, 23000, '2023-11-15', '2023-11-16', 1),
+(9, 9, 2, 102500, '2023-11-14', '2023-11-15', 1);
 
 -- --------------------------------------------------------
 
@@ -145,12 +168,13 @@ INSERT INTO `tb_transaksi` (`id_transaksi`, `id_user`, `id_paket`, `nominal_tran
 
 CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
-  `nama_user` varchar(50) NOT NULL,
-  `alamat_user` varchar(100) NOT NULL,
-  `email` varchar(25) NOT NULL,
-  `telp_user` varchar(12) NOT NULL,
+  `nama_user` varchar(50) DEFAULT NULL,
+  `namatoko_user` varchar(50) DEFAULT NULL,
+  `alamat_user` varchar(100) DEFAULT NULL,
+  `email` varchar(25) DEFAULT NULL,
+  `telp_user` varchar(12) DEFAULT NULL,
   `username_user` varchar(25) NOT NULL,
-  `pass_user` varchar(25) NOT NULL,
+  `pass_user` varchar(255) NOT NULL,
   `tgl_daftar` date DEFAULT NULL,
   `tgl_awal` date DEFAULT NULL,
   `tgl_akhir` date DEFAULT NULL,
@@ -161,12 +185,17 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `nama_user`, `alamat_user`, `email`, `telp_user`, `username_user`, `pass_user`, `tgl_daftar`, `tgl_awal`, `tgl_akhir`, `id_paket`) VALUES
-(2, 'test', 'test', 'test@gmail.com', '2555446', 'test123', 'test123', '2023-11-12', '0000-00-00', '0000-00-00', 1),
-(5, 'dummy 1', 'dummy 1', 'dummy1@gmail.com', '2313', 'dummy 12', 'dummy 1', '2023-11-13', '0000-00-00', '0000-00-00', 1),
-(6, 'user', 'saaas', 'userme@gmail.com', '2555446', 'user', 'user', '2023-11-15', '0000-00-00', '0000-00-00', 12),
-(7, 'kul', 'kul', 'kul@gmail.com', '124134', 'kul', 'kul', '2023-11-16', '0000-00-00', '0000-00-00', 11),
-(8, 'human', 'human', 'human@gmail.com', '45567', 'humanaa', 'human', '2023-11-15', '0000-00-00', '0000-00-00', 15);
+INSERT INTO `tb_user` (`id_user`, `nama_user`, `namatoko_user`, `alamat_user`, `email`, `telp_user`, `username_user`, `pass_user`, `tgl_daftar`, `tgl_awal`, `tgl_akhir`, `id_paket`) VALUES
+(2, 'test', NULL, 'test', 'test@gmail.com', '2555446', 'test123', 'test123', '2023-11-12', '0000-00-00', '0000-00-00', 1),
+(5, 'dummy 1', NULL, 'dummy 1', 'dummy1@gmail.com', '2313', 'dummy 12', 'dummy 1', '2023-11-13', '0000-00-00', '0000-00-00', 1),
+(6, 'user', NULL, 'saaas', 'userme@gmail.com', '2555446', 'user', 'user', '2023-11-15', '0000-00-00', '0000-00-00', 12),
+(7, 'kul', NULL, 'kul', 'kul@gmail.com', '124134', 'kul', 'kul', '2023-11-16', '0000-00-00', '0000-00-00', 11),
+(9, 'ac', NULL, 'ac', 'ac@gmail.com', '676', 'ac123', 'ac123', '2023-11-15', '0000-00-00', '0000-00-00', 1),
+(12, '', NULL, '', 'cengkir@gmail.com', '', 'cengkir123', '$2y$10$zLnM0xtJPtMM5MI/CY8AQOioCUa8lGXlZhulHj5igITFr0xgVY96i', '2023-11-20', '2023-11-20', '2023-11-30', 2),
+(15, 'Daru Rajasa', NULL, NULL, 'waluyo69@rajata.go.id', NULL, 'daruraasa', '$2y$10$zGbtcGXqWZXC0DaOgBIpuOxdUbk52xjLks6N0iTkZ0c0D2HS137vq', '2023-11-21', NULL, NULL, 1),
+(16, 'Mahfud Habibi', NULL, NULL, 'mahfudbi@gmail.com', NULL, 'mahfudbi', '$2y$10$qk8hCWWiwqS0odIqr.dbjesNq6Ej/ixvGnTYgTLg/K59nIH.LNgQK', '2023-11-21', NULL, NULL, 1),
+(18, 'Prabawa Halim', NULL, NULL, 'prabawim@yahoo.co.id', NULL, 'prabawim', '$2y$10$n1eakSERepMIYVV5gbxMWO373Cmjs9ksveq7enmWhdzM.VMQFzD8a', '2023-11-21', NULL, NULL, 1),
+(22, 'Gilang Dongoran', NULL, '', 'gilanran@gmail.com', '', 'gilanran', '$2y$10$3.1flyMlZexr.PllkRRfYOMgL2IHrPkrFwEPbCfDOjdS3jennvh1G', '2023-11-21', '2023-11-21', '2023-11-30', 2);
 
 --
 -- Indexes for dumped tables
@@ -190,15 +219,23 @@ ALTER TABLE `tb_gaji`
 -- Indexes for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  ADD PRIMARY KEY (`id_karaywan`),
+  ADD PRIMARY KEY (`id_karyawan`),
+  ADD UNIQUE KEY `nik_karyawan` (`nik_karyawan`),
   ADD KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `tb_keuangan`
 --
 ALTER TABLE `tb_keuangan`
   ADD PRIMARY KEY (`id_keuangan`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_kategori` (`id_kategori`);
 
 --
 -- Indexes for table `tb_paket`
@@ -242,7 +279,13 @@ ALTER TABLE `tb_gaji`
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karaywan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_keuangan`
@@ -254,19 +297,19 @@ ALTER TABLE `tb_keuangan`
 -- AUTO_INCREMENT for table `tb_paket`
 --
 ALTER TABLE `tb_paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
@@ -277,7 +320,7 @@ ALTER TABLE `tb_user`
 --
 ALTER TABLE `tb_gaji`
   ADD CONSTRAINT `tb_gaji_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_gaji_ibfk_2` FOREIGN KEY (`id_karyawan`) REFERENCES `tb_karyawan` (`id_karaywan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_gaji_ibfk_2` FOREIGN KEY (`id_karyawan`) REFERENCES `tb_karyawan` (`id_karyawan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_karyawan`
@@ -289,7 +332,8 @@ ALTER TABLE `tb_karyawan`
 -- Constraints for table `tb_keuangan`
 --
 ALTER TABLE `tb_keuangan`
-  ADD CONSTRAINT `tb_keuangan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_keuangan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tb_keuangan_ibfk_2` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`);
 
 --
 -- Constraints for table `tb_transaksi`

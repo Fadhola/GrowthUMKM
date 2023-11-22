@@ -18,6 +18,7 @@ class User extends CI_Controller {
 		if(empty($this->session->userdata('username_admin'))){
 			redirect('admin/admincontroll');
 		}
+        $data['transaksi_data'] = $this->Madmin->getAllTransaksi();
         if ($this->input->post()) {
             $this->form_validation->set_rules('namauser', 'Nama User', 'required');
             $this->form_validation->set_rules('alamatuser', 'Alamat User', 'required');
@@ -65,10 +66,7 @@ class User extends CI_Controller {
         $data['user_data'] = $this->Madmin->getUserById($id);
     
         if ($this->input->post()) {
-            $this->form_validation->set_rules('namauser', 'Nama User', 'required');
-            $this->form_validation->set_rules('alamatuser', 'Alamat User', 'required');
             $this->form_validation->set_rules('emailuser', 'Email User', 'required|valid_email');
-            $this->form_validation->set_rules('tlpuser', 'Telepon User', 'required');
             $this->form_validation->set_rules('usernameuser', 'Username User', 'required');
             $this->form_validation->set_rules('passuser', 'Password User', 'required');
             $this->form_validation->set_rules('id_paket', 'Id Paket', 'required');

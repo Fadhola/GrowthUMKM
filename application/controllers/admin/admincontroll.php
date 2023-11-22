@@ -19,6 +19,9 @@ class Admincontroll extends CI_Controller {
 		if(empty($this->session->userdata('username_admin'))){
 			redirect('admin/admincontroll');
 		}
+		$data['paket_data'] = $this->Madmin->getAllPaket();
+		$data['user_data'] = $this->Madmin->getAllUser();
+		$data['transaksi_data'] = $this->Madmin->getAllTransaksi();
 		$data['total_user_aktif'] = $this->Madmin->getTotalUserAktif();
 		$data['total_user_tidak_aktif'] = $this->Madmin->getTotalUserTidakAktif();
 		$this->load->view('admin/layout/header');
