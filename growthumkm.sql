@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 03:44 PM
+-- Generation Time: Nov 28, 2023 at 06:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -94,6 +94,14 @@ CREATE TABLE `tb_kategori` (
   `nama_kategori` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tb_kategori`
+--
+
+INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
+(1, 'Pengeluaran'),
+(2, 'Pemasukan');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +116,17 @@ CREATE TABLE `tb_keuangan` (
   `id_kategori` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_keuangan`
+--
+
+INSERT INTO `tb_keuangan` (`id_keuangan`, `catatan`, `tanggal`, `nominal`, `id_kategori`, `id_user`) VALUES
+(11, 'beli bahan ', '2023-11-28', '25000', 1, 12),
+(12, 'beli bahan 2', '2023-11-28', '75000', 1, 12),
+(13, 'hasil jual shift 1', '2023-11-28', '55000', 2, 12),
+(14, 'hasil jual shift 2', '2023-11-28', '105000', 2, 12),
+(15, 'beli bahan 3', '2023-11-28', '150000', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -191,7 +210,7 @@ INSERT INTO `tb_user` (`id_user`, `nama_user`, `namatoko_user`, `alamat_user`, `
 (6, 'user', NULL, 'saaas', 'userme@gmail.com', '2555446', 'user', 'user', '2023-11-15', '0000-00-00', '0000-00-00', 12),
 (7, 'kul', NULL, 'kul', 'kul@gmail.com', '124134', 'kul', 'kul', '2023-11-16', '0000-00-00', '0000-00-00', 11),
 (9, 'ac', NULL, 'ac', 'ac@gmail.com', '676', 'ac123', 'ac123', '2023-11-15', '0000-00-00', '0000-00-00', 1),
-(12, '', NULL, '', 'cengkir@gmail.com', '', 'cengkir123', '$2y$10$zLnM0xtJPtMM5MI/CY8AQOioCUa8lGXlZhulHj5igITFr0xgVY96i', '2023-11-20', '2023-11-20', '2023-11-30', 2),
+(12, 'Cengkir Wahna', 'UMKM KITA TAHU', '', 'cengkir@gmail.com', '09875631231', 'cengkir123', '$2y$10$zLnM0xtJPtMM5MI/CY8AQOioCUa8lGXlZhulHj5igITFr0xgVY96i', '2023-11-20', '2023-11-20', '2023-11-30', 2),
 (15, 'Daru Rajasa', NULL, NULL, 'waluyo69@rajata.go.id', NULL, 'daruraasa', '$2y$10$zGbtcGXqWZXC0DaOgBIpuOxdUbk52xjLks6N0iTkZ0c0D2HS137vq', '2023-11-21', NULL, NULL, 1),
 (16, 'Mahfud Habibi', NULL, NULL, 'mahfudbi@gmail.com', NULL, 'mahfudbi', '$2y$10$qk8hCWWiwqS0odIqr.dbjesNq6Ej/ixvGnTYgTLg/K59nIH.LNgQK', '2023-11-21', NULL, NULL, 1),
 (18, 'Prabawa Halim', NULL, NULL, 'prabawim@yahoo.co.id', NULL, 'prabawim', '$2y$10$n1eakSERepMIYVV5gbxMWO373Cmjs9ksveq7enmWhdzM.VMQFzD8a', '2023-11-21', NULL, NULL, 1),
@@ -285,13 +304,13 @@ ALTER TABLE `tb_karyawan`
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_keuangan`
 --
 ALTER TABLE `tb_keuangan`
-  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
