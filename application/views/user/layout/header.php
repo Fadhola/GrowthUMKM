@@ -37,7 +37,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
 
                 </div>
-                <div class="sidebar-brand-text mx-3">Growth UMKM - <smal>Test</smal></div>
+                <div class="sidebar-brand-text mx-1">APP Growth UMKM - <small><?php echo $user->namatoko_user;?></small></div>
             </a>
 
             <!-- Divider -->
@@ -60,7 +60,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?php echo base_url('keuangan')?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Keuangan</span></a>
             </li>
@@ -77,6 +77,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Data Penggajian Karyawan</span></a>
             </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

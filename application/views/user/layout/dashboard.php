@@ -102,7 +102,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?php echo base_url('profile');?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -129,110 +129,171 @@
 
                     <!-- Content Row -->
                     <div class="row">
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pendapatan (Harian)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pendapatan (Bulanan)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Pemasukan (Harian)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->daily_income; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pendapatan (Tahunan)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                            <!-- ... Repeat for other cards -->
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Pemasukan (Bulanan)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->monthly_income; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- ... Repeat for other cards -->
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Pemasukan (Tahunan)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->yearly_income; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-down fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ... Repeat for other cards -->
                     </div>
-                    
                     <div class="row">
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Pengeluaran (Harian)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->daily_expense; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <!-- ... Repeat for other cards -->
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Pengeluaran (Bulanan)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->monthly_expense; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ... Repeat for other cards -->
+                            <!-- Daily Income Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Pengeluaran (Tahunan)</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $totals->yearly_expense; ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ... Repeat for other cards -->
+                    </div>
+                    <div class="row">
+                        <!-- Daily Income-Expense Difference Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Selisih (Harian)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $differences->daily_difference; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                            <i class="fas fa-balance-scale fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pengeluaran (Tahunan)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Selisih (Bulanan)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $differences->monthly_difference; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-arrow-up fa-2x text-gray-300"></i>
+                                            <i class="fas fa-balance-scale fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Selisih (Tahunan)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                Rp.<?php echo $differences->yearly_difference; ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-balance-scale fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -240,9 +301,11 @@
                         </div>
                     </div>
 
-                    <!-- Content Row -->
-
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h6 mb-0 text-gray-800">Masa Aktif Berlangganan Anda Sampai dengan : <?php echo $user->tgl_akhir?></h1>
+                    </div>
                 </div>
+                
                 <!-- /.container-fluid -->
 
             </div>

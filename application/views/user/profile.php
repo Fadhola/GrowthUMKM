@@ -123,47 +123,63 @@
                 <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Data Karyawan</h1>
-                <a href="#" class="btn btn-primary text-white mb-2" data-toggle="modal" data-target="#UaddKaryawan"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                <h1 class="h3 mb-2 text-gray-800">Profile Setting</h1>
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Id Karyawan</th>
-                                        <th>Nama Karyawan</th>
-                                        <th>Posisi Karyawan</th>
-                                        <th>Tanggal Awal Kerja</th>
-                                        <th>N.I.K.</th>
-                                        <th>Telp Karyawan</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php foreach ($karyawan as $k) : ?>
-                                            <tr>
-                                                <td><?php echo $k->id_karyawan; ?></td>
-                                                <td><?php echo $k->nama_karyawan; ?></td>
-                                                <td><?php echo $k->role; ?></td>
-                                                <td><?php echo $k->tgl_kerja; ?></td>
-                                                <td><?php echo $k->nik_karyawan; ?></td>
-                                                <td><?php echo $k->telp_karyawan; ?></td>
-                                                <td>
-                                                <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editKaryawanModal<?php echo $k->id_karyawan; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('karyawan/deleteKaryawan/' . $k->id_karyawan); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                    </div>
+                <div class="card shadow mb-4 p-3">
+                        <form action="<?php echo site_url('profile/editProfile/' . $user->id_user); ?>" method="post">
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault01">Nama User</label>
+                                <input type="text" class="form-control" id="namauser" name="namauser" value="<?php echo $user->nama_user;?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault02">Nama Toko User</label>
+                                <input type="text" class="form-control" id="namatoko" name="namatoko" value="<?php echo $user->namatoko_user;?>"  required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefaultUsername">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="validationDefaultUsername" value="<?php echo $user->username_user;?>" aria-describedby="inputGroupPrepend2" disabled>
+                                </div>
+                                </div>
+                                </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault03">No. Telp User</label>
+                                <input type="text" class="form-control" id="telpuser" name="telpuser" value="<?php echo $user->telp_user;?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault04">Email User</label>
+                                <input type="text" class="form-control" id="email" value="<?php echo $user->email;?>" disabled>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault03">Tanggal Daftar</label>
+                                <input type="date" class="form-control" id="tgl_daftar" value="<?php echo $user->tgl_daftar;?>" disabled>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault03">Tanggal Awal Berlangganan</label>
+                                <input type="date" class="form-control" id="tgl_awal" value="<?php echo $user->tgl_awal;?>" disabled>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <label for="validationDefault04">Tanggal Akhir Berlangganan</label>
+                                <input type="date" class="form-control" id="tgl_akhir" value="<?php echo $user->tgl_akhir;?>" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                <label class="form-check-label" for="invalidCheck2">
+                                    Konfirmasi Perubahan
+                                </label>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Upate Profile</button>
+                        </form>
                 </div>
 
                 </div>

@@ -11,7 +11,7 @@ class Main extends CI_Controller {
 
     public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('user/index');
 	}
 
     public function register()
@@ -103,9 +103,15 @@ class Main extends CI_Controller {
     if(empty($this->session->userdata('username_user'))){
         redirect('main/login');        
     }
+    $id_user = $this->session->userdata('user_id');
     $data['username_user'] = $this->session->userdata('username_user');
+    $data['user'] = $this->Muser->getUserById($id_user);
+    $data['totals'] = $this->Muser->getIncomeExpenseTotals($id_user);
+    $data['differences'] = $this->Muser->getIncomeExpenseDifference($id_user);
+    $data['keuangan'] = $this->Muser->getKeuanganByIdUser($id_user);
+    $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
     $this->load->view('user/layout/header', $data);
-    $this->load->view('user/layout/dashboard');
+    $this->load->view('user/layout/dashboard' ,$data);
     $this->load->view('user/layout/modal');
     $this->load->view('user/layout/footer');
     }
