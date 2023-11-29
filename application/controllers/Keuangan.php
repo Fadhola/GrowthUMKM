@@ -16,7 +16,9 @@ class Keuangan extends CI_Controller {
         }
         $id_user = $this->session->userdata('user_id');
         $data['username_user'] = $this->session->userdata('username_user');
-        $data['user_id'] = $this->session->userdata('user_id');
+        $data['user'] = $this->Muser->getUserById($id_user);
+        $data['totals'] = $this->Muser->getIncomeExpenseTotals($id_user);
+        $data['differences'] = $this->Muser->getIncomeExpenseDifference($id_user);
         $data['keuangan'] = $this->Muser->getKeuanganByIdUser($id_user);
         $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
         $data['kategori'] = $this->Muser->getAllKategori();

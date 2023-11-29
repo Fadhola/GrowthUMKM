@@ -57,7 +57,7 @@
                         <input type="date" class="form-control" id="tglkerja" name="tglkerja" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user_id; ?>" hidden>
+                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user->id_user; ?>" hidden>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -104,7 +104,7 @@
                         <input type="date" class="form-control" id="tglkerja" name="tglkerja" value="<?php echo $k->tgl_kerja; ?>"required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user_id; ?>" hidden>
+                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user->id_user; ?>" hidden>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -150,7 +150,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user_id; ?>" hidden>
+                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user->id_user; ?>" hidden>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

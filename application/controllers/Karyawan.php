@@ -16,9 +16,11 @@ class Karyawan extends CI_Controller {
         }
         $id_user = $this->session->userdata('user_id');
         $data['username_user'] = $this->session->userdata('username_user');
-        $data['user_id'] = $this->session->userdata('user_id');
-        $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
+        $data['user'] = $this->Muser->getUserById($id_user);
+        $data['totals'] = $this->Muser->getIncomeExpenseTotals($id_user);
+        $data['differences'] = $this->Muser->getIncomeExpenseDifference($id_user);
         $data['keuangan'] = $this->Muser->getKeuanganByIdUser($id_user);
+        $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
         $this->load->view('user/layout/header', $data);
         $this->load->view('user/karyawan', $data);
         $this->load->view('user/layout/modal');

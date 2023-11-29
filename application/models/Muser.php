@@ -81,7 +81,6 @@ class Muser extends CI_Model{
         $this->db->select_sum('nominal');
         $this->db->where('id_user', $id_user);
         $this->db->where('id_kategori', $id_kategori);
-        $this->db->group_by('tanggal');
 
         switch ($frequency) {
             case 'daily':
@@ -102,7 +101,8 @@ class Muser extends CI_Model{
         $result = $query->row();
 
         return ($result) ? $result->nominal : 0;
-    }    
+    }   
+
     public function getIncomeExpenseDifference($id_user)
     {
         $result = new stdClass();
