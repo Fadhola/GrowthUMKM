@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 06:16 PM
+-- Generation Time: Dec 06, 2023 at 07:34 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,12 +51,20 @@ INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `telp_admin`, `username_admin`
 
 CREATE TABLE `tb_gaji` (
   `id_gaji` int(11) NOT NULL,
-  `periode` date NOT NULL,
+  `periode` varchar(20) NOT NULL,
   `tgl_gaji` date NOT NULL,
   `nominal_gaji` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_karyawan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_gaji`
+--
+
+INSERT INTO `tb_gaji` (`id_gaji`, `periode`, `tgl_gaji`, `nominal_gaji`, `id_user`, `id_karyawan`) VALUES
+(2, 'Januari', '2023-12-06', 1700000, 31, 7),
+(3, 'November', '2023-12-06', 1500000, 31, 7);
 
 -- --------------------------------------------------------
 
@@ -81,7 +89,9 @@ CREATE TABLE `tb_karyawan` (
 INSERT INTO `tb_karyawan` (`id_karyawan`, `nama_karyawan`, `role`, `telp_karyawan`, `nik_karyawan`, `tgl_kerja`, `id_user`) VALUES
 (3, 'Andri Putra', 'staff', '56565', '28494420526267999163450896', '2023-11-19', 12),
 (4, 'Gangsa Saputra', 'staff', '0898214981942', '78322045959808309464801023', '2023-11-20', 12),
-(5, 'Umaya Hutagalung', 'Kepala Staff', '08967455666', '13800583531873164773418647', '2023-11-21', 12);
+(5, 'Umaya Hutagalung', 'Kepala Staff', '08967455666', '13800583531873164773418647', '2023-11-21', 12),
+(7, 'Assandi Putra', 'Staff', '0831287391873', '1278412748178', '2023-11-29', 31),
+(8, 'Danendra', 'staff', '0834657574', '721486814647', '2023-12-06', 31);
 
 -- --------------------------------------------------------
 
@@ -126,7 +136,13 @@ INSERT INTO `tb_keuangan` (`id_keuangan`, `catatan`, `tanggal`, `nominal`, `id_k
 (12, 'beli bahan 2', '2023-11-28', '75000', 1, 12),
 (13, 'hasil jual shift 1', '2023-11-28', '55000', 2, 12),
 (14, 'hasil jual shift 2', '2023-11-28', '105000', 2, 12),
-(15, 'beli bahan 3', '2023-11-28', '150000', 1, 12);
+(15, 'beli bahan 3', '2023-11-28', '150000', 1, 12),
+(17, 'Hasil Jual Shift 1', '2023-11-29', '30000', 2, 31),
+(18, 'Beli Bahan 2', '2023-11-29', '50000', 1, 31),
+(19, 'Hasil Jual Shift 1', '2023-11-29', '150000', 2, 31),
+(20, 'Beli Bahan 1', '2023-11-29', '50000', 1, 31),
+(21, 'r', '2023-11-28', '50000', 2, 31),
+(22, 'r', '2023-11-28', '34000', 1, 31);
 
 -- --------------------------------------------------------
 
@@ -214,7 +230,8 @@ INSERT INTO `tb_user` (`id_user`, `nama_user`, `namatoko_user`, `alamat_user`, `
 (15, 'Daru Rajasa', NULL, NULL, 'waluyo69@rajata.go.id', NULL, 'daruraasa', '$2y$10$zGbtcGXqWZXC0DaOgBIpuOxdUbk52xjLks6N0iTkZ0c0D2HS137vq', '2023-11-21', NULL, NULL, 1),
 (16, 'Mahfud Habibi', NULL, NULL, 'mahfudbi@gmail.com', NULL, 'mahfudbi', '$2y$10$qk8hCWWiwqS0odIqr.dbjesNq6Ej/ixvGnTYgTLg/K59nIH.LNgQK', '2023-11-21', NULL, NULL, 1),
 (18, 'Prabawa Halim', NULL, NULL, 'prabawim@yahoo.co.id', NULL, 'prabawim', '$2y$10$n1eakSERepMIYVV5gbxMWO373Cmjs9ksveq7enmWhdzM.VMQFzD8a', '2023-11-21', NULL, NULL, 1),
-(22, 'Gilang Dongoran', NULL, '', 'gilanran@gmail.com', '', 'gilanran', '$2y$10$3.1flyMlZexr.PllkRRfYOMgL2IHrPkrFwEPbCfDOjdS3jennvh1G', '2023-11-21', '2023-11-21', '2023-11-30', 2);
+(22, 'Gilang Dongoran', NULL, '', 'gilanran@gmail.com', '', 'gilanran', '$2y$10$3.1flyMlZexr.PllkRRfYOMgL2IHrPkrFwEPbCfDOjdS3jennvh1G', '2023-11-21', '2023-11-21', '2023-11-30', 2),
+(31, 'Ibnu Arbianto Pratama', 'JUARA PECEL', NULL, 'ibnuar@gmail.com', '028130130183', 'ibnuar', '$2y$10$8ZrDT4rfd95Wuy47mKRWaundBNSehHZnu7uPeRsZHLnfYUw7.teg2', '2023-11-29', '2023-11-29', '2023-12-29', 2);
 
 --
 -- Indexes for dumped tables
@@ -292,13 +309,13 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_gaji`
 --
 ALTER TABLE `tb_gaji`
-  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gaji` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_karyawan`
 --
 ALTER TABLE `tb_karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori`
@@ -310,7 +327,7 @@ ALTER TABLE `tb_kategori`
 -- AUTO_INCREMENT for table `tb_keuangan`
 --
 ALTER TABLE `tb_keuangan`
-  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
@@ -328,7 +345,7 @@ ALTER TABLE `tb_transaksi`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables

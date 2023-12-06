@@ -22,6 +22,7 @@ class Keuangan extends CI_Controller {
         $data['keuangan'] = $this->Muser->getKeuanganByIdUser($id_user);
         $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
         $data['kategori'] = $this->Muser->getAllKategori();
+        $data['gajikaryawan'] = $this->Muser->getGajiKaryawanByIdUser($id_user);
         $this->load->view('user/layout/header', $data);
         $this->load->view('user/keuangan', $data);
         $this->load->view('user/layout/modal');

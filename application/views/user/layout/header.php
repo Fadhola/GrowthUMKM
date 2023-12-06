@@ -73,7 +73,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?php echo base_url('gajikaryawan')?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Data Penggajian Karyawan</span></a>
             </li>

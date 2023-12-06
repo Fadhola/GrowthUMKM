@@ -20,6 +20,7 @@ class Profile extends CI_Controller {
         $data['user'] = $this->Muser->getUserById($id_user);
         $data['keuangan'] = $this->Muser->getKeuanganByIdUser($id_user);
         $data['karyawan'] = $this->Muser->getKaryawanByIdUser($id_user);
+        $data['gajikaryawan'] = $this->Muser->getGajiKaryawanByIdUser($id_user);
         $this->load->view('user/layout/header', $data);
         $this->load->view('user/profile', $data);
         $this->load->view('user/layout/modal');

@@ -123,45 +123,42 @@
                 <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Data Karyawan</h1>
-                <a href="#" class="btn btn-primary text-white mb-2" data-toggle="modal" data-target="#UaddKaryawan"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                <h1 class="h3 mb-2 text-gray-800">Data Gaji Karyawan</h1>
+                <a href="#" class="btn btn-primary text-white mb-2" data-toggle="modal" data-target="#UaddGajiKaryawan"><i class="fa fa-plus" aria-hidden="true"></i></a>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Karyawan</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Data Gaji Karyawan</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Id Karyawan</th>
+                                        <th>Id Gaji</th>
+                                        <th>Periode</th>
+                                        <th>Tanggal Gajian</th>
+                                        <th>Nominal Penggajian</th>
                                         <th>Nama Karyawan</th>
-                                        <th>Posisi Karyawan</th>
-                                        <th>Tanggal Awal Kerja</th>
-                                        <th>N.I.K.</th>
-                                        <th>Telp Karyawan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <?php foreach ($karyawan as $k) : ?>
-                                            <tr>
-                                                <td><?php echo $k->id_karyawan; ?></td>
-                                                <td><?php echo $k->nama_karyawan; ?></td>
-                                                <td><?php echo $k->role; ?></td>
-                                                <td><?php echo $k->tgl_kerja; ?></td>
-                                                <td><?php echo $k->nik_karyawan; ?></td>
-                                                <td><?php echo $k->telp_karyawan; ?></td>
-                                                <td>
-                                                <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editKaryawanModal<?php echo $k->id_karyawan; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('karyawan/deleteKaryawan/' . $k->id_karyawan); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
+                                    <?php foreach ($gajikaryawan as $gk) : ?>
+                                        <tr>
+                                            <td><?php echo $gk->id_gaji; ?></td>
+                                            <td><?php echo $gk->periode; ?></td>
+                                            <td><?php echo $gk->tgl_gaji; ?></td>
+                                            <td><?php echo $gk->nominal_gaji; ?></td>
+                                            <td><?php echo $gk->nama_karyawan; ?></td>
+                                            <td>
+                                                <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editGajiKaryawanModal<?php echo $gk->id_gaji; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                                <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('gajikaryawan/deleteGajiKaryawan/' . $gk->id_gaji); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
-                            </table>
-                            
+                         </table>
                         </div>
                     </div>
                 </div>

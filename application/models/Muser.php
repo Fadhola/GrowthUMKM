@@ -18,6 +18,20 @@ class Muser extends CI_Model{
         return $this->db->get_where('tb_karyawan', ['id_user' => $id_user])->result();
     }
 
+    public function getGajiKaryawanByIdUser($id_user) {
+        $this->db->select('tb_gaji.*, tb_karyawan.nama_karyawan');
+        $this->db->from('tb_gaji');
+        $this->db->join('tb_karyawan', 'tb_gaji.id_karyawan = tb_karyawan.id_karyawan');
+        $this->db->where('tb_gaji.id_user', $id_user);
+        return $this->db->get()->result();
+    }
+    
+
+    public function deleteGajiKaryawan($id) {
+        $this->db->where('id_gaji', $id);
+        $this->db->delete('tb_gaji');
+    }
+
     public function deleteKaryawan($id) {
         $this->db->where('id_karyawan', $id);
         $this->db->delete('tb_karyawan');
@@ -26,6 +40,17 @@ class Muser extends CI_Model{
     public function insertKaryawan($data) {
         $this->db->insert('tb_karyawan', $data);
     }
+
+    public function insertGajiKaryawan($data) {
+        $this->db->insert('tb_gaji', $data);
+    }
+
+    public function updateGajiKaryawan($id, $data)
+    {
+        $this->db->where('id_gaji', $id);
+        $this->db->update('tb_gaji', $data);
+    }
+
 
     public function updateKaryawan($id, $data)
     {

@@ -207,3 +207,123 @@
     </div>
     </div>  
     <?php endforeach; ?>
+
+    <!-- add Gaji Karyawan Modal-->
+    <div class="modal fade" id="UaddGajiKaryawan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penggajian Karyawan</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?php echo site_url('gajikaryawan/addGajiKaryawan'); ?>" method="post">
+                    <div class="form-group">
+                        <label for="periode">Periode Penggajian : </label>
+                        <select id="periode" name="periode" class="form-control">
+                            <option>Januari</option>
+                            <option>Februari</option>
+                            <option>Maret</option>
+                            <option>April</option>
+                            <option>Mei</option>
+                            <option>Juni</option>
+                            <option>Juli</option>
+                            <option>Agustus</option>
+                            <option>September</option>
+                            <option>Oktober</option>
+                            <option>November</option>
+                            <option>Desember</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tglgaji">Tanggal Input Data Penggajian : </label>
+                        <input type="date" class="form-control" id="tglgaji" name="tglgaji" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominalgaji">Nominal Gaji : </label>
+                        <input type="text" class="form-control" id="nominalgaji" name="nominalgaji" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_karyawan">Nama Karyawan : </label>
+                        <select class="form-control" id="id_karyawan" name="id_karyawan" required>
+                            <?php foreach ($karyawan as $k) : ?>
+                                <option value="<?php echo $k->id_karyawan; ?>"><?php echo $k->nama_karyawan; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="id_user" name="id_user" value="<?php echo $user->id_user; ?>" hidden>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah Gaji Karyawan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div> 
+
+    <!-- edit Gaji Karyawan Modal-->
+    <?php foreach ($gajikaryawan as $gk) :?>
+    <div class="modal fade" id="editGajiKaryawanModal<?php echo $gk->id_gaji; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data Gaji Karyawan</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?php echo site_url('gajikaryawan/editGajiKaryawan/' . $gk->id_gaji); ?>" method="post">
+                    <div class="form-group">
+                    <small class="text-danger">*Pastikan Menginput kolom <b>Periode</b> Kembali !!</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="periode">Periode Penggajian : </label>
+                        <select id="periode" name="periode" class="form-control">
+                            <option>Januari</option>
+                            <option>Februari</option>
+                            <option>Maret</option>
+                            <option>April</option>
+                            <option>Mei</option>
+                            <option>Juni</option>
+                            <option>Juli</option>
+                            <option>Agustus</option>
+                            <option>September</option>
+                            <option>Oktober</option>
+                            <option>November</option>
+                            <option>Desember</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tglgaji">Tanggal Input Data Penggajian : </label>
+                        <input type="date" class="form-control" id="tglgaji" name="tglgaji" value="<?php echo $gk->tgl_gaji; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nominalgaji">Nominal Gaji : </label>
+                        <input type="text" class="form-control" id="nominalgaji" name="nominalgaji" value="<?php echo $gk->nominal_gaji; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_karyawan">Nama Karyawan : </label>
+                        <select class="form-control" id="id_karyawan" name="id_karyawan" required>
+                            <?php foreach ($karyawan as $k) : ?>
+                                <option value="<?php echo $k->id_karyawan; ?>" <?php echo ($k->id_karyawan == $gk->id_karyawan) ? 'selected' : ''; ?>>
+                                    <?php echo $k->nama_karyawan; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Edit Gaji Karyawan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>  
+    <?php endforeach; ?>
