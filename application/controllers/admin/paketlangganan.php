@@ -16,7 +16,7 @@ class Paketlangganan extends CI_Controller {
 
 	public function addpaket(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
         if ($this->input->post()) {
             $this->form_validation->set_rules('waktu', 'Waktu', 'required');
@@ -28,14 +28,14 @@ class Paketlangganan extends CI_Controller {
                     'harga' => $this->input->post('harga'),
                 );
                 $this->Madmin->insertPaket($data);
-                redirect('admin/admincontroll/paketlangganan');
+                redirect('Admin/admincontroll/paketlangganan');
             }
         }
 	}
 
     public function editpaket($id) {
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
         if ($this->input->post()) {
             $data = array(
@@ -43,7 +43,7 @@ class Paketlangganan extends CI_Controller {
                 'harga' => $this->input->post('harga'),
             );
             $this->Madmin->updatePaket($id, $data);
-            redirect('admin/admincontroll/paketlangganan');
+            redirect('Admin/admincontroll/paketlangganan');
         }
         $data['paket'] = $this->Madmin->getPaketById($id);
     }
@@ -55,7 +55,7 @@ class Paketlangganan extends CI_Controller {
             redirect('admincontroll');
         }
         $this->Madmin->deletePaket($id);
-        redirect('admin/admincontroll/paketlangganan');
+        redirect('Admin/admincontroll/paketlangganan');
     }
 
 }

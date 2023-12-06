@@ -16,7 +16,7 @@ class Transaksi extends CI_Controller {
 
     public function addtransaksi(){
         if(empty($this->session->userdata('username_admin'))){
-            redirect('admin/admincontroll');
+            redirect('Admin/admincontroll');
         }
         $this->form_validation->set_rules('nominaltransaksi', 'Nominal Transaksi', 'required');
         $this->form_validation->set_rules('tglbayar', 'Tanggal Bayar', 'required');
@@ -45,7 +45,7 @@ class Transaksi extends CI_Controller {
 
     public function edittransaksi($id) {
         if(empty($this->session->userdata('username_admin'))){
-            redirect('admin/admincontroll');
+            redirect('Admin/admincontroll');
         }
         $data['paket_data'] = $this->Madmin->getAllPaket();
         $data['paket_data'] = $this->Madmin->getAllPaket();
@@ -67,7 +67,7 @@ class Transaksi extends CI_Controller {
     
                 // Perbarui data transaksi
                 $this->Madmin->updateTransaksi($id, $data_transaksi);
-                redirect('admin/admincontroll/transaksi');
+                redirect('Admin/admincontroll/transaksi');
             } else {
                 $data['validation_error'] = validation_errors();
             }
@@ -81,10 +81,10 @@ class Transaksi extends CI_Controller {
     
     public function deletetransaksi($id){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
         $this->Madmin->deletetransaksi($id);
-        redirect('admin/admincontroll/transaksi');
+        redirect('Admin/admincontroll/transaksi');
     }
 
 }

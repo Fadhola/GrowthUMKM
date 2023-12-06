@@ -36,7 +36,7 @@
                                                     <td><?php echo $t->id_admin; ?></td>
                                                     <td>
                                                     <a href="#" class="btn btn-warning text-white m-1" data-toggle="modal" data-target="#editTransaksiModal<?php echo $t->id_transaksi; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('admin/transaksi/deletetransaksi/' . $t->id_transaksi); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn btn-danger text-white m-1" onclick="confirmDelete('<?php echo site_url('Admin/transaksi/deletetransaksi/' . $t->id_transaksi); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

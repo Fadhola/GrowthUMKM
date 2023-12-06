@@ -29,7 +29,7 @@ class Keuangan extends CI_Controller {
         $this->load->view('user/layout/footer');
     }
 
-    public function addKeuangan() 
+    public function addkeuangan() 
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');
@@ -63,7 +63,7 @@ class Keuangan extends CI_Controller {
         }
     }
 
-    public function editKeuangan($id_keuangan) 
+    public function editkeuangan($id_keuangan) 
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');

@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('karyawan/addKaryawan'); ?>" method="post">
+                <form action="<?php echo site_url('karyawan/addkaryawan'); ?>" method="post">
                     <div class="form-group">
                         <label for="namakaryawan">Nama Karyawan : </label>
                         <input type="text" class="form-control" id="namakaryawan" name="namakaryawan" required>
@@ -81,7 +81,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('karyawan/editKaryawan/' . $k->id_karyawan); ?>" method="post">
+                <form action="<?php echo site_url('karyawan/editkaryawan/' . $k->id_karyawan); ?>" method="post">
                 <div class="form-group">
                         <label for="namakaryawan">Nama Karyawan : </label>
                         <input type="text" class="form-control" id="namakaryawan" name="namakaryawan" value="<?php echo $k->nama_karyawan; ?>">
@@ -128,7 +128,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('keuangan/addKeuangan'); ?>" method="post">
+                <form action="<?php echo site_url('keuangan/addkeuangan'); ?>" method="post">
                     <div class="form-group">
                         <label for="catatan">Catatan Keuangan : </label>
                         <input type="text" class="form-control" id="catatan" name="catatan" required>
@@ -174,7 +174,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('keuangan/editKeuangan/' . $ku->id_keuangan); ?>" method="post">
+                <form action="<?php echo site_url('keuangan/editkeuangan/' . $ku->id_keuangan); ?>" method="post">
                 <div class="form-group">
                         <label for="catatan">Catatan Keuangan : </label>
                         <input type="text" class="form-control" id="catatan" name="catatan" value="<?php echo $ku->catatan; ?>">
@@ -219,7 +219,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('gajikaryawan/addGajiKaryawan'); ?>" method="post">
+                <form action="<?php echo site_url('gajikaryawan/addgajikaryawan'); ?>" method="post">
                     <div class="form-group">
                         <label for="periode">Periode Penggajian : </label>
                         <select id="periode" name="periode" class="form-control">
@@ -278,7 +278,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('gajikaryawan/editGajiKaryawan/' . $gk->id_gaji); ?>" method="post">
+                <form action="<?php echo site_url('gajikaryawan/editgajikaryawan/' . $gk->id_gaji); ?>" method="post">
                     <div class="form-group">
                     <small class="text-danger">*Pastikan Menginput kolom <b>Periode</b> Kembali !!</small>
                     </div>

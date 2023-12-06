@@ -17,7 +17,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-warning" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger" href="<?php echo base_url('admin/admincontroll/logout')?>">Logout</a>
+                    <a class="btn btn-danger" href="<?php echo base_url('Admin/admincontroll/logout')?>">Logout</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/paketlangganan/addpaket'); ?>" method="post">
+                <form action="<?php echo site_url('Admin/paketlangganan/addpaket'); ?>" method="post">
                     <div class="form-group">
                         <label for="waktu">Waktu / Range Langganan (cth : '1 tahun'): </label>
                         <input type="text" class="form-control" id="waktu" name="waktu" required>
@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/user/adduser'); ?>" method="post">
+                <form action="<?php echo site_url('Admin/user/adduser'); ?>" method="post">
                     <div class="form-group">
                         <label for="waktu">Nama user : </label>
                         <input type="text" class="form-control" id="namauser" name="namauser" required>
@@ -124,7 +124,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/transaksi/addtransaksi'); ?>" method="post">
+                <form action="<?php echo site_url('Admin/transaksi/addtransaksi'); ?>" method="post">
                     <div class="form-group">
                         <label for="nominaltransaksi">Nominal Transaksi (terbayar) : </label>
                         <input type="text" class="form-control" id="nominaltransaksi" name="nominaltransaksi" required>
@@ -193,7 +193,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/paketlangganan/editpaket/' . $pkt->id_paket); ?>" method="post">
+                <form action="<?php echo site_url('Admin/paketlangganan/editpaket/' . $pkt->id_paket); ?>" method="post">
                     <div class="form-group">
                         <label for="waktu">Waktu / Range Langganan:</label>
                         <input type="text" class="form-control" id="waktu" name="waktu" value="<?php echo $pkt->waktu; ?>" required>
@@ -225,7 +225,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/user/edituser/' . $usr->id_user); ?>" method="post">
+                <form action="<?php echo site_url('Admin/user/edituser/' . $usr->id_user); ?>" method="post">
                     <div class="form-group">
                         <label for="namauser">Nama User : </label>
                         <input type="text" class="form-control" id="namauser" name="namauser" value="<?php echo $usr->nama_user; ?>">
@@ -298,7 +298,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo site_url('admin/transaksi/edittransaksi/' . $t->id_transaksi); ?>" method="post">
+                <form action="<?php echo site_url('Admin/transaksi/edittransaksi/' . $t->id_transaksi); ?>" method="post">
                     <div class="form-group">
                         <small class="text-danger">*Pastikan sebelum mengedit memperhatikan data user,admin, dan paket dengan benar !!</small>
                     </div>

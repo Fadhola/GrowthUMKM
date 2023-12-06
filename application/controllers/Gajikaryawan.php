@@ -28,7 +28,7 @@ class Gajikaryawan extends CI_Controller {
         $this->load->view('user/layout/footer');
     }
 
-    public function addGajiKaryawan() 
+    public function addgajikaryawan() 
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');
@@ -60,7 +60,7 @@ class Gajikaryawan extends CI_Controller {
         }
     }
 
-    public function editGajiKaryawan($id_gaji) 
+    public function editgajikaryawan($id_gaji) 
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');

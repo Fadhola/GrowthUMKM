@@ -28,7 +28,7 @@ class Karyawan extends CI_Controller {
         $this->load->view('user/layout/footer');
     }
 
-    public function addKaryawan() 
+    public function addkaryawan() 
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');
@@ -66,7 +66,7 @@ class Karyawan extends CI_Controller {
         } 
     }   
 
-    public function editKaryawan($id)
+    public function editkaryawan($id)
     {
         if ($this->input->post()) {
             $this->form_validation->set_rules('namakaryawan', 'Nama Karyawan', 'required');
@@ -101,7 +101,7 @@ class Karyawan extends CI_Controller {
         }
     }
 
-    public function deleteKaryawan($id)
+    public function deletekaryawan($id)
     {
         if (empty($this->session->userdata('username_user'))) {
             redirect('main/login');

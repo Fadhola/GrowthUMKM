@@ -215,7 +215,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Sudah Siap Menjadi UMKM Yag Sukses ?</h2>
+          <h2>Sudah Siap Menjadi UMKM Yang Sukses ?</h2>
           <h5>Pilih Paket Yang Tersedia</h5>
         </div>
 
@@ -372,7 +372,7 @@
             <div class="member" data-aos="zoom-in">
               <div class="pic"><img src="assets/img/team/tim-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Ibnu Arbianto Pratan</h4>
+                <h4>Ibnu Arbianto Pratama</h4>
                 <span>Fullstack Developer</span>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>

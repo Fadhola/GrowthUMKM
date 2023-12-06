@@ -28,7 +28,7 @@
                                                     <td><?php echo $pkt->harga; ?></td>
                                                     <td>
                                                     <a href="#" class="btn btn-warning text-white" data-toggle="modal" data-target="#editPaketModal<?php echo $pkt->id_paket; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
-                                                    <a href="#" class="btn btn-danger text-white" onclick="confirmDelete('<?php echo site_url('admin/paketlangganan/deletepaket/' . $pkt->id_paket); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn btn-danger text-white" onclick="confirmDelete('<?php echo site_url('Admin/paketlangganan/deletepaket/' . $pkt->id_paket); ?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

@@ -17,7 +17,7 @@ class Admincontroll extends CI_Controller {
     public function dashboard()
 	{
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$data['user_data'] = $this->Madmin->getAllUser();
@@ -31,7 +31,7 @@ class Admincontroll extends CI_Controller {
 
 	public function paketlangganan(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$data['user_data'] = $this->Madmin->getAllUser();
@@ -43,7 +43,7 @@ class Admincontroll extends CI_Controller {
 
 	public function user(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$data['user_data'] = $this->Madmin->getAllUser();
@@ -55,7 +55,7 @@ class Admincontroll extends CI_Controller {
 
 	public function transaksi(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$data['user_data'] = $this->Madmin->getAllUser();
@@ -67,7 +67,7 @@ class Admincontroll extends CI_Controller {
 
 	public function veriftransaksi(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
 		$data['paket_data'] = $this->Madmin->getAllPaket();
 		$data['user_data'] = $this->Madmin->getAllUser();
@@ -89,16 +89,16 @@ class Admincontroll extends CI_Controller {
 			'status' => 'login'
 		);
 		$this->session->set_userdata($data_session);
-		redirect('admin/admincontroll/dashboard');
+		redirect('Admin/admincontroll/dashboard');
 	} else {
 		$this->session->set_flashdata('error', 'Username atau password salah.');
-		redirect('admin/admincontroll');
+		redirect('Admin/admincontroll');
 	}
 	}
 	
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('admin/admincontroll');
+		redirect('Admin/admincontroll');
 	}
 }
 

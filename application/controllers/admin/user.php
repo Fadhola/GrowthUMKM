@@ -16,7 +16,7 @@ class User extends CI_Controller {
 
     public function adduser(){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
         $data['transaksi_data'] = $this->Madmin->getAllTransaksi();
         if ($this->input->post()) {
@@ -44,7 +44,7 @@ class User extends CI_Controller {
                     'id_paket' => $this->input->post('id_paket')
                 );
                 $this->Madmin->insertUser($data_user);
-                redirect('admin/admincontroll/user');
+                redirect('Admin/admincontroll/user');
             } else {
                 $data['validation_error'] = validation_errors();
                 $data['all_admin'] = $this->Madmin->getAllAdmin();
@@ -59,7 +59,7 @@ class User extends CI_Controller {
 
     public function edituser($id) {
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
     
         $data['paket_data'] = $this->Madmin->getAllPaket();
@@ -86,7 +86,7 @@ class User extends CI_Controller {
                 );
     
                 $this->Madmin->updateUser($id, $data_user);
-                redirect('admin/admincontroll/user');
+                redirect('Admin/admincontroll/user');
             } else {
                 $data['validation_error'] = validation_errors();
                 $this->load->view('admin/layout/header', $data);
@@ -101,10 +101,10 @@ class User extends CI_Controller {
     
     public function deleteuser($id){
 		if(empty($this->session->userdata('username_admin'))){
-			redirect('admin/admincontroll');
+			redirect('Admin/admincontroll');
 		}
         $this->Madmin->deleteUser($id);
-        redirect('admin/admincontroll/user');
+        redirect('Admin/admincontroll/user');
     }
 
 }
